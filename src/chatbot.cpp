@@ -67,6 +67,18 @@ ChatBot& ChatBot::operator=(const ChatBot &other)
     }
     return *this;
 }
+
+ChatBot::ChatBot(ChatBot &&other)
+{
+    std::cout << "ChatBot Move Constructor" << std::endl;
+
+    other._image = _image;
+    other._chatLogic = _chatLogic;
+    other._rootNode = _rootNode;
+    other._currentNode = _currentNode;
+    delete _image;
+}
+
 ////
 //// EOF STUDENT CODE
 
