@@ -79,6 +79,23 @@ ChatBot::ChatBot(ChatBot &&other)
     delete _image;
 }
 
+ChatBot& ChatBot::operator=(ChatBot &&other)
+{
+    std::cout << "ChatBot Move Assignment" << std::endl;
+
+    if (&other != this) 
+    { 
+	std::swap(*this, other);
+/*
+	std::swap(&_image, &other._image);
+	std::swap(&_chatLogic, &other._chatLogic);
+	std::swap(&_rootNode, &other._rootNode);
+        std::swap(&_currentNode, &other._currentNode);
+*/
+    }
+    return *this;
+}
+
 ////
 //// EOF STUDENT CODE
 
