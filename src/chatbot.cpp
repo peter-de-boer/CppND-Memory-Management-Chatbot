@@ -11,7 +11,7 @@
 // constructor WITHOUT memory allocation
 ChatBot::ChatBot()
 {
-    std::cout << "ChatBot Constructor (Empty)" << std::endl;
+    std::cout << "ChatBot Constructor (Initialize)" << std::endl;
     // invalidate data handles
     _image = NULL;
     _chatLogic = nullptr;
@@ -45,8 +45,6 @@ ChatBot::~ChatBot()
     }
 }
 
-//// STUDENT CODE
-////
 ChatBot::ChatBot(const ChatBot &other)
 {
     std::cout << "ChatBot Copy Constructor" << std::endl;
@@ -92,7 +90,6 @@ ChatBot& ChatBot::operator=(ChatBot &&other)
 
     if (&other != this) 
     { 
-	//std::swap(*this, other);
 	delete _image;
 	_image = other._image;
 	_chatLogic = other._chatLogic;
@@ -102,18 +99,10 @@ ChatBot& ChatBot::operator=(ChatBot &&other)
 	other._chatLogic = nullptr;
 	other._rootNode = nullptr;
 	other._currentNode = nullptr;
-/*
-	std::swap(&_image, &other._image);
-	std::swap(&_chatLogic, &other._chatLogic);
-	std::swap(&_rootNode, &other._rootNode);
-        std::swap(&_currentNode, &other._currentNode);
-*/
     }
     return *this;
 }
 
-////
-//// EOF STUDENT CODE
 
 void ChatBot::ReceiveMessageFromUser(std::string message)
 {

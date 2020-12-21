@@ -8,13 +8,6 @@ GraphNode::GraphNode(int id)
 
 GraphNode::~GraphNode()
 {
-    //// STUDENT CODE
-    ////
-
-    //delete _chatBot; 
-
-    ////
-    //// EOF STUDENT CODE
 }
 
 void GraphNode::AddToken(std::string token)
@@ -32,8 +25,6 @@ void GraphNode::AddEdgeToChildNode(std::shared_ptr<GraphEdge> edge)
     _childEdges.push_back(edge);
 }
 
-//// STUDENT CODE
-////
 void GraphNode::MoveChatbotHere(ChatBot chatbot)
 {
     _chatBot = chatbot;
@@ -43,18 +34,9 @@ void GraphNode::MoveChatbotHere(ChatBot chatbot)
 void GraphNode::MoveChatbotToNewNode(GraphNode *newNode)
 {
     newNode->MoveChatbotHere(std::move(_chatBot));
-    //_chatBot = nullptr; // invalidate pointer at source
 }
-////
-//// EOF STUDENT CODE
 
 GraphEdge* GraphNode::GetChildEdgeAtIndex(int index)
 {
-    //// STUDENT CODE
-    ////
-
     return _childEdges[index].get();
-
-    ////
-    //// EOF STUDENT CODE
 }
